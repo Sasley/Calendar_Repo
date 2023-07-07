@@ -11,6 +11,19 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+
+
+  $( ".saveBtn" ).on( "click", function() {
+    console.log($(this))
+    console.log($(this).parent())
+    console.log($(this).parent().attr("id"))
+    console.log($(this).siblings("textarea").val())
+    var hourBlockId = $(this).parent().attr("id")
+    var hourTextarea = $(this).siblings("textarea").val()
+    localStorage.setItem(hourBlockId, hourTextarea);
+  } );
+
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -21,5 +34,17 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+$("#hour-9").children("textarea").val(localStorage.getItem("hour-9"))
+$("#hour-10").children("textarea").val(localStorage.getItem("hour-10"))
+$("#hour-11").children("textarea").val(localStorage.getItem("hour-11"))
+$("#hour-12").children("textarea").val(localStorage.getItem("hour-12"))
+$("#hour-13").children("textarea").val(localStorage.getItem("hour-13"))
+$("#hour-14").children("textarea").val(localStorage.getItem("hour-14"))
+$("#hour-15").children("textarea").val(localStorage.getItem("hour-15"))
+
+
+
   // TODO: Add code to display the current date in the header of the page.
+  $("#currentDay").text(currentDate)
 });
+
